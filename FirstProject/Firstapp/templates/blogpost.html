@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog Post</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="clean-blog.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+<body>
+	<!-- Navigation -->
+ <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <!-- <a class="navbar-brand" href="index.html">About Us</a> -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="addpost.html">Add Post</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'logout'%}">Log Out</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+            <!--   <a class="nav-link" href="index.html">Admin</a> -->
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="container">
+     <header class="masthead" style="background-image: url('images/home.jpg')"> 
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1 >Blog Post</h1>
+              <span class="subheading">Anyone can Blog...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    </div>
+
+    <!-- Main Page -->
+
+    	<div class="container">
+    		<div class="row">
+    		
+ 				 <div class="col-lg-8 boxy"><a href="https://medium.freecodecamp.org/how-to-think-like-a-programmer-lessons-in-problem-solving-d1d8bf1de7d2" >
+ 				 <p>How to think like a programmer-lessons in problem solving:</p>
+ 				</a>
+ 				<p>"Everyone in this country should learn to program a computer,because it teaches you to think."-Steve Jobs</p>
+ 			</div>
+ 				
+ 				 <div class="col-lg-4 boxy"><img src="image1.png" height="150px" width="150px"></div>
+ 			
+			</div>
+
+			<div class="row">
+    		
+ 				 <div class="col-lg-8 boxy"><a href="https://medium.com/@nykolas.z/dns-resolvers-performance-compared-cloudflare-x-google-x-quad9-x-opendns-149e803734e5" >
+ 				 <p>DNS Resolvers Performance compared:CloudFlare x Google x Quad9 x OpenDNS</p>
+ 				</a>
+ 				
+ 			</div>
+ 				
+ 				 <div class="col-lg-4 boxy"><img src="images/image1.png" height="150px" width="150px"></div>
+ 			
+			</div>
+    	
+    	
+		</div>
+
+</body>
+</html>

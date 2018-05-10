@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Blog Post</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+	* /*{
+	    box-sizing: border-box;
+	}*/
+
+	/* Create two equal columns that floats next to each other */
+	.column {
+	    float: left;
+	    width: 50%;
+	    padding: 2px 20px 2px 2px;
+	    height: 300px; /* Should be removed. Only for demonstration */
+	}
+
+	/* Clear floats after the columns */
+	.row:after {
+	    
+	    display: table;
+	    clear: both;
+	}
+	img {
+    float: left;
+
+	}
+	#sub{
+	margin: 2px;
+	background-color: rgb(53, 157, 232);
+	height: 30px;
+	width: 100px;
+	border-radius: 20px;
+}
+
+
+	</style>
+
+</head>
+<body>
+	<!-- Naviation Bar -->
+	<nav class="navbar bg-dark">
+		<div class="container">
+		<a class="navbar-brand navbar-header" href="{% url 'Firstapp:index' %}">Blog Post</a>
+		<a class="navbar-nav-link" href="{% url 'admin:index' %}">Admin</a>
+		<form class="navbar-brand navbar-nav navbar-header navbar-right " method="POST">
+			
+			{% csrf_token %}
+			<table class="navbar-brand navbar-nav">
+				<tr>
+					<td><input type="hidden" name="form_type" value="formOne"></td>
+					<td><font color="white" size="3px">Username:</font></td>
+					<td><font color="white" size="2px"><input type="text" name="username" placeholder="username">   </font></td>
+					<td><font color="white" size="3px">Password:</font></td>
+					<td><font color="white" size="2px"><input type="password" name="password" placeholder="password"> </small></font></td>
+					<td><font color="white" size="2px"><input type="submit" name="" Value="sign in"></font></td>
+
+				</tr>
+			</table>
+			
+		</form>
+		</div>
+	</nav>
+	<!-- main body -->
+	<div class="container">
+		<div class="jumbotron ">
+			{% if registered %}
+
+				<h1>Thank you for Registering!!</h1>
+
+			{% else %}
+
+				<div class="row">
+				  <div class="column">
+				    
+				    
+
+				    <p align="justify"><img src="{% static 'images/logo.jpg' %}" height="200px" width="200px" alt="sorry unable to load image" style="width:170px;height:170px;margin-right:15px;"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				    proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
+				  </div>
+				  <div class="column" >
+				  	<form enctype="multipart/form-data" method="POST">
+				  		{% csrf_token %}
+				    <table class="" >
+				    	<col>
+							  <colgroup span="2"></colgroup>
+							  <colgroup span="2"></colgroup>
+				    	<tr>
+						    
+						    <th colspan="2" scope="colgroup">Create New Account!</th>
+						    
+						</tr>
+						<tr>
+						    <input type="hidden" name="form_type" value="formTwo">
+						    <th colspan="2" scope="colgroup" size="44"><!-- <input class="form-control" type="text" name="" placeholder="Username" size="44"> --> {{userform.username }}</th>
+
+						</tr>
+						<tr>
+						    <th scope="colgroup" colspan="1"><!-- <input class="form-control" type="text" name="" placeholder="First Name"> -->{{ userform.first_name }}</th>
+						    <th scope="colgroup" colspan="1"><!-- <input class="form-control" type="text" name="" placeholder="Last Name"> -->{{ userform.last_name }}</th>
+						    
+						 </tr>
+						 <tr>
+						    
+						    <th colspan="2" scope="colgroup"><!-- <input class="form-control" type="email" name="" placeholder="Email" size="44"> -->{{ userform.email }}</th>
+
+						</tr>
+						<tr>
+						    
+						    <th colspan="2" scope="colgroup"><!-- <input class="form-control" type="password" name="" placeholder="Password" size="44"> -->{{ userform.password }}</th>		    
+						</tr>
+						<tr>
+						    <th>
+						    <!-- <th colspan="2" scope="colgroup"><input class="form-control" type="password" name="" placeholder="Confirm Password" size="44"></th>
+							 -->	{{ extendedform.profile_pic }}			    
+							 </th>
+						</tr>
+						<tr>
+						    
+						    <th colspan="2" scope="colgroup">
+						    	<!-- <input  type="radio" name="radiogroup">
+						    	<label>Male</label>
+						    	<input type="radio" name="radiogroup">
+						    	<label>Female</label> -->
+						    	{{ extendedform.gender }}
+						    </th>
+										    
+						</tr>
+						<tr>
+						    
+						    <td colspan="2" scope="colgroup">
+						    	<p><font size="2px">By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</font></p>
+						    </td>    
+						</tr>
+						<tr>
+						    
+						    <th colspan="2" scope="colgroup">
+						    	<input id="sub" type="submit" name="" Value="Sign Up">
+						    </th>    
+						</tr>
+
+
+				    	
+				    	
+				    </table>
+				    </form>
+				{% endif %}
+				  </div>
+				
+				</div>
+			
+
+			
+		</div>
+	</div>
+	<div class="container">
+		<hr class="featurette-divider">
+
+		<footer class="container">
+        <p class="float-right"></p>
+        <p>&copy; 2018-2019 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </main>
+
+    
+	</div>
+
+</body>
+</html>
+
+		
